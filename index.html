@@ -5,15 +5,31 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-<div id="test"><ul></div>
-<div id="form">
-<form id="newTask" method="post">
-	Task<input type="text" id="name">
-	Date<input type="date" id="date">
-	Assigned<input type="text" id='assigned'>
-	<input type="submit" value="Submit">
-</form>
-</div>
+	<div class="wrapper">
+		<div class="header">
+			<h1>Task Tracker</h1>
+			<p>v2.0</p>
+		</div>
+		<div class="container">
+			<div class="info">
+				<div id="task-form">
+					<p>Create a Task</p>
+					<form id="newTask" method="post">
+						<label for="name">Task Name<input type="text" id="name"></label>
+						<label for="date">Date<input type="text" id="date"></label>
+						<label for="assigned">Assigned To<input type="text" id='assigned'></label>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+			<div class="info">
+				<p>Existing Tags</p>
+				<div id="tasks-list">
+					<ul id="tasks"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

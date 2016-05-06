@@ -1,12 +1,9 @@
 var htmlBuilder = function(obj){
 	$.each(obj, function(i, tasks){
-	html = '<li>' + tasks.name + ' ' + tasks.date + ' ' + tasks.assigned + '</li>';
-	
-	$('#test').append(html);	
-});
+		html = '<li>' + tasks.name + '<span class="date"> ' + tasks.date + '</span><span class="assigned"> ' + tasks.assigned + '</span></li>';	
+		$('#tasks').append(html);	
+	});
 }
-
-
 $(function(){
  
 var tasks =	'[ '+
@@ -23,19 +20,25 @@ var obj = $.parseJSON(tasks);
 
 htmlBuilder(obj);
 
-
+//Add data to JSON via stringify, 
+//It's a little clumsy because I have to empty the data and refill, but I canno use a web server 
 $('#newTask').submit(function(e){
 	e.preventDefault();
 	var name = $('#name').val();
 	var date = $('#date').val();
 	var asgd = $('#assigned').val();
-	obj.push({"name": name, "date": date,"assigned":asgd});
-	tasks= JSON.stringify(obj);
-	$('#test').empty();
-	htmlBuilder(obj);
-	$('#name').val()='';
-	$('#date').val() ='';
-	$('#assigned').val()= '';
+		if(name != '' && date != ''&& asgd !=''){
+			obj.push({"name": name, "date": date,"assigned":asgd});
+			tasks= JSON.stringify(obj);
+			$('#tasks').empty();
+			htmlBuilder(obj);
+			$('#name').val('');
+			$('#date').val('');
+			$('#assigned').val('');	
+		}else{
+			//I know this is generic 
+			alert('Please fill out all forms');
+		}
 });
 
 
