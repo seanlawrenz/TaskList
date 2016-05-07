@@ -4,6 +4,7 @@ var htmlBuilder = function(obj){
 		$('#tasks').append(html);	
 	});
 }
+
 $(function(){
  
 var tasks =	'[ '+
@@ -21,7 +22,7 @@ var obj = $.parseJSON(tasks);
 htmlBuilder(obj);
 
 //Add data to JSON via stringify, 
-//It's a little clumsy because I have to empty the data and refill, but I canno use a web server 
+//It's a little clumsy because I have to empty the data and refill, but I cannot use a web server 
 $('#newTask').submit(function(e){
 	e.preventDefault();
 	var name = $('#name').val();
